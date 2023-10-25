@@ -11,21 +11,28 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         margin: 0;
         padding: 0;
       }
 
+      h1 {
+        color: white;
+      }
+
       .container {
         text-align: center;
+        padding: 20px;
+        margin: 0 auto;
+        margin-top: 80px;
+        display: inline-block;
         background-color: #002218;
         border-radius: 10px;
         border: 2px solid rgb(128, 218, 133);
-        padding: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        width: 900px;
-        height: 350px;
-        margin: 0 auto;
-        margin-top: 150px;
       }
 
       #question {
@@ -33,6 +40,9 @@
         margin-top: 5px;
         margin-bottom: 10px;
         color: #fff;
+        word-wrap: break-word;
+        max-height: 120px;
+        max-width: 1000px;
       }
 
       #answer {
@@ -72,10 +82,40 @@
         margin-top: 20px;
         color: #fff;
       }
+
+      .button-keluar {
+        position: absolute;
+        width: 190px;
+        height: 44px;
+        bottom: 35px;
+        left: 590px;
+        font-size: larger;
+        font-weight: bold;
+        color: #fff;
+        border-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        background-color: rgb(0, 46, 19);
+      }
+
+      .button-next-level {
+        position: absolute;
+        width: 190px;
+        height: 44px;
+        bottom: 35px;
+        left: 390px;
+        font-size: larger;
+        font-weight: bold;
+        color: #fff;
+        border-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        background-color: rgb(0, 46, 19);
+        display: none; /* Mulai dengan mode tersembunyi */
+      }
     </style>
   </head>
   <body>
     <div class="container">
+      <h1>LEVEL 1</h1>
       <div id="question">
         <!-- Soal akan ditampilkan di sini -->
       </div>
@@ -90,7 +130,8 @@
       </div>
       <div id="score">Skor:0</div>
     </div>
-
+    <button class="button-keluar" id="exit-button">KELUAR</button>
+    <button class="button-next-level" id="next-level-button">Next Level</button>
     <script>
       // Daftar soal dan jawaban
       const questions = [
@@ -116,6 +157,30 @@
           question: "Digunakan untuk menambahkan data baru di tabel database:",
           answer: "INSERT",
         },
+        {
+          question:
+            "Perintah SQL yang digunakan untuk mengelompokkan data berdasarkan kriteria tertentu dalam hasil query adalah:",
+          answer: "GROUP",
+        },
+        {
+          question:
+            "Perintah SQL yang digunakan untuk mengambil jumlah baris dalam sebuah tabel adalah:",
+          answer: "COUNT",
+        },
+        {
+          question:
+            "Perintah SQL untuk menggabungkan data dari beberapa tabel adalah:",
+          answer: "JOIN",
+        },
+        {
+          question:
+            "Perintah SQL untuk menambahkan sebuah kolom ke dalam tabel adalah:",
+          answer: "ALTER",
+        },
+        {
+          question: "Perintah SQL yang digunakan untuk membuat tabel adalah:",
+          answer: "CREATE",
+        },
       ];
 
       // Fungsi untuk mengacak huruf
@@ -134,6 +199,7 @@
       let currentAnswer = "";
       let currentQuestionIndex = 0;
       let score = 0;
+      let currentLevel = 1;
 
       // Fungsi untuk menambah skor
       function addScore() {
@@ -202,11 +268,33 @@
           answerBox.innerText = "";
           shuffleBox.innerHTML = "";
           messageBox.innerText = "";
+          // Tampilkan tombol "Next Level"
+          nextLevelButton.style.display = "block";
         }
       }
 
       // Memulai permainan
       resetGame();
+
+      // Ambil tombol keluar berdasarkan ID
+      const exitButton = document.getElementById("exit-button");
+
+      // Tambahkan event listener untuk tombol keluar
+      exitButton.addEventListener("click", () => {
+        // Redirect kembali ke halaman menu
+        window.location.href =
+          "https://22091397005muhammadainurrofik.github.io/gameweb/bggame.html"; //halaman yang dituju//
+      });
+
+      // Ambil tombol next level berdasarkan ID
+      const nextLevelButton = document.getElementById("next-level-button");
+
+      // Tambahkan event listener untuk tombol next level
+      nextLevelButton.addEventListener("click", () => {
+        // Redirect kembali ke halaman level berikutnya
+        window.location.href =
+          "https://22091397005muhammadainurrofik.github.io/gameweb/gamelevel2.html"; //halaman yang dituju//
+      });
     </script>
   </body>
 </html>
