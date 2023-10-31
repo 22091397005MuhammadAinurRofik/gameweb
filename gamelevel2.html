@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Matching string level 2</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -121,31 +121,40 @@
         background-color: rgb(0, 46, 19);
         display: none; /* Mulai dengan mode tersembunyi */
       }
+
+      .gamedanbutton {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>LEVEL 2</h1>
-      <div id="question">
-        <!-- Soal akan ditampilkan di sini -->
+    <div class="gamedanbutton">
+      <div class="container">
+        <h1>LEVEL 1</h1>
+        <div id="question">
+          <!-- Soal akan ditampilkan di sini -->
+        </div>
+        <div id="answer">
+          <!-- Kotak jawaban akan ditampilkan di sini -->
+        </div>
+        <div id="shuffle-box">
+          <!-- Box huruf yang teracak akan ditampilkan di sini -->
+        </div>
+        <div id="message">
+          <!-- Pemberitahuan jawaban akan ditampilkan di sini -->
+        </div>
+        <div id="score">Skor:0</div>
       </div>
-      <div id="answer">
-        <!-- Kotak jawaban akan ditampilkan di sini -->
+      <div class="containerbutton">
+        <button class="button-keluar" id="exit-button">KELUAR</button>
+        <button class="button-next-level" id="next-level-button">
+          Next Level
+        </button>
       </div>
-      <div id="shuffle-box">
-        <!-- Box huruf yang teracak akan ditampilkan di sini -->
-      </div>
-      <div id="message">
-        <!-- Pemberitahuan jawaban akan ditampilkan di sini -->
-      </div>
-      <div id="score">Skor:0</div>
     </div>
-    <div class="containerbutton">
-      <button class="button-keluar" id="exit-button">KELUAR</button>
-      <button class="button-next-level" id="next-level-button">
-        Next Level
-      </button>
-    </div>
+
     <script>
       // Daftar soal dan jawaban
       const questions = [
